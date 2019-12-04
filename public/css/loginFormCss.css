@@ -1,0 +1,111 @@
+#wrap{
+	width:450px;
+	height: 450px;
+}
+.container {
+	width: 449px; 
+	height: 449px; 
+	font: 10px normal Verdana, Arial, Helvetica, sans-serif;}
+.tabs {
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+	height: 32px;
+	border-bottom: 1px solid rgb(127, 182, 186);
+	border-left: 1px solid rgb(127, 182, 186);
+	width: 100%;
+}
+ul.tabs li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	height: 31px;
+	line-height: 31px;
+	border: 1px solid rgb(127, 182, 186);
+	border-left: none;
+	margin-bottom: -1px;
+	background: #EFF6F7;
+	overflow: hidden;
+}
+ul.tabs li a {
+	text-decoration: none;
+	color: #000;
+	display: block;
+	font-size: 1.3em;
+	padding: 0 73px;
+	padding-bottom:5px;
+	border: 1px solid #fff;
+	outline: none;
+}
+ul.tabs li a:hover {
+	background: rgb(127, 182, 186);
+}	
+html ul.tabs li.active, html ul.tabs li.active a:hover  {
+	background: #EFF6F7;
+	border-bottom: 2px solid #EFF6F7;
+}
+.tab_container {
+	border: 1px solid rgb(127, 182, 186);
+	border-top: none;
+	float: left; 
+	width: 100%;
+	background: rgba(127, 182, 186, 0.12);
+	-moz-border-radius-bottomright: 5px;
+	-khtml-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-khtml-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+}
+.tab_content {
+	padding: 10px;
+	font-size: 1.2em;
+}
+#loginForm, #notjoinForm{
+display:inline-block;
+padding: 15px 50px;
+}
+#id, #password{
+width: 100%;
+padding: 10px 15px;
+}
+#email, #number{
+padding: 10px 15px;
+}
+div > input{
+padding: 5px 0;
+}
+#loginButton{
+margin:0 12px;
+}
+input[type="submit"]{
+width:100%;
+height:100%;
+margin-top:3px;
+padding: 15px 129px;
+border: none;
+border-radius:3px;
+color:white;
+background-color:rgba(0, 111, 119, 0.66);
+}
+#checkbox{
+margin-top:4px;
+padding: 0 16px;
+}
+#service img{
+padding-top: 3px;
+}
+#service{
+padding:0 16px;
+font-size: 12px;
+}
+#service a{
+text-decoration: none;
+color: #000000;
+}
+
+#kakaoLogin{
+margin-top:8px;
+padding:0 10px;
+}

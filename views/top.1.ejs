@@ -1,0 +1,68 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<% String name = (String) session.getAttribute("MEMNAME"); 
+	String id = (String) session.getAttribute("MEMBERID");%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" media="screen" href="css/topCss.css" />
+</head>
+<body>
+<div id="topMenu">
+<% if(id==null) {%>
+<div id="top1">
+	<span><a href="login.jsp">로그인</a></span>
+	<span><a href="condition.jsp">회원가입</a></span>
+	<span><a href="#">고객센터</a></span> 
+</div>
+<%} else if(id.equals("admin")){%>
+<div id="top1">
+	<span class="username"><%= name %>님 !</span>
+	<span><a href="logoutProcess.jsp">로그아웃</a></span>
+	<span><a href="admin.jsp">관리자페이지</a></span> 
+</div>
+<%} else{%>
+	<div id="top1">
+		<span class="username"><%= name %>님 !</span>
+		<span><a href="logoutProcess.jsp">로그아웃</a></span>
+		<span><a href="myindex.jsp">마이페이지</a></span> 
+	</div>
+<%} %>
+<div id="header2">
+<div id="top2">
+<span id="logo"><a href="index.jsp"><img src="image/DYAir.gif" width="240" height="100"></a></span>
+<nav>
+    <ul>
+        <li class="sub">
+            <a href="reserve1.jsp"><h1>항공권예매</h1></a>
+            <ul>
+                <li><a href="reserve1.jsp"><h4>항공권 예매</h4></a></li>
+            </ul>
+        </li>
+        <li class="sub">
+            <a href="myindex.jsp"><h1>마이페이지</h1></a>
+            <ul>
+                <li><a href="resolvation.jsp"><h4>예매내역관리</h4></a></li>
+                <li><a href="myindex.jsp"><h4>개인정보관리</h4></a></li>
+            </ul>
+        </li>
+        <li class="sub">
+            <a href="explain.jsp"><h1>서비스안내</h1></a>
+            <ul>
+                <li><a href="explain.jsp"><h4>항공권 예매</h4></a></li>
+                <li><a href="explain2.jsp"><h4>항공권 환불</h4></a></li>
+            </ul>
+        </li>
+        <li><a href="event.jsp"><h1>이벤트</h1></a></li>
+    </ul>
+</nav>
+</div>
+</div>
+<div id="top3">
+  &nbsp;<br>
+</div>
+</div>
+</body>
+</html>
