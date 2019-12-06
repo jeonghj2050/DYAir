@@ -57,11 +57,9 @@
     display : block; /* blcok */
 	}
 	#top1{
-	width: 1800px;
 	margin:auto;
 	text-align:right;
 	padding: 5px 0;
-	font-size: 18px;
 	background-color: #7FB6BA;
 	}
 	#top1 > span{
@@ -75,12 +73,10 @@
 	font-weight: bold;
 	}
 	#top2{
-	width:1920px;
 	height:150px;
 	margin:auto;
 	}
 	#top3{
-	width:1920px;
 	margin:auto;
 	clear:both;
 	background-color: #7FB6BA;

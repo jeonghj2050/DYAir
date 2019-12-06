@@ -1,0 +1,23 @@
+<html>
+
+<head></head>
+
+<body>
+    <div className="imgForm">
+        <form action="/account/login" method="post">
+            <div className="login_form">
+                <div className="id_box">
+                    <input type="text" name="userid" placeholder="ID" />
+                </div>
+                <div className="pw_box">
+                    <input type="password" onChange={this.handlePasswordChange} name="password"
+                        placeholder="PASSWORD" />
+                </div>
+                <input type="submit" value="Login" className="btn1" />
+                <p className="message">Not registered? <a href="/account/register">Create an account</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+.content{
+    width: 90%;
+    margin: 0 auto;
+}
+.table1 {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 20px;
+    border:0.5px solid #aaa;
+}
+
+.table1 th, .table1 td {
+    padding: 8px;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: top;
+}
+
+
+.btn1 {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #7FB6BA;
+    font-weight: bold;
+    float: right;
+}
+
+.btn1:focus {
+    color: #5D5D5D;
+    background-color: #7FB6BA;
+    font-weight: bold;
+
+}
+
+.btn1:hover {
+    color: #5D5D5D;
+    background-color: #7FB6BA;
+    font-weight: bold;
+}
+.wrapper{
+    width: 70%;
+    margin: 0 auto;
+}
+.post_form{
+    width:100%;
+}
+.td_title{
+    width: 10%;    
+    text-align: center;
+    background: #ddd;
+    font-weight: bold;
+}
+.td_content{
+    width: 100%;
+}
+.td_content input{
+    width: 100%;
+}
+textarea{
+    width: 100%;
+    resize: none;
+    text-align: left;
+}

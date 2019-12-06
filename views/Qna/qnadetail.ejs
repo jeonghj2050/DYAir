@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<link href="/public/css/questionCss.css" rel="stylesheet">
+	<meta charset="utf-8">
+	<title>동양항공 문의글</title>
+	<style>
+		header {
+			position: relative;
+			z-index: 3;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<% include ../top.ejs %>
+	</div>
+	<div class="content">
+		<table class="post_form">
+			<tr>
+				<td class="td_title">유형</td>
+				<td class="td_content">
+					<%=session.question_detail.type %>
+				</td>
+			</tr>
+			<tr>
+				<td class="td_title"> 제목</td>
+				<td class="td_content">
+					<%=session.question_detail.title %>
+				</td>
+			</tr>
+			<tr>
+				<td class="td_title">내용</td>
+				<td class="td_content">
+					<textarea readonly name="question_content" rows="20" class="question_content"><%=session.question_detail.content %></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td class="td_title">작성자</td>
+				<td class="td_content">
+					<%=session.question_detail.writer %>
+				</td>
+			</tr>
+			<tr>
+				<td class="td_title">답변상태</td>
+				<td class="td_content">
+					<% if(session.question_detail.status == 0) {%>
+					답변대기중
+					<% } else{%>
+					답변완료
+					<% } %>
+				</td>
+			</tr>		
+		</table>
+		<% if(session.question_detail.status == 1) { %>
+			<h4>답변</h4>
+
+				<textarea readonly name="question_content" rows="20" class="question_content"><%=session.question_detail.comments %></textarea>
+
+		<% } %>
+		<% if(session.loginInfo.userid == "manager" && session.question_detail.status==0) { %>
+		<h5>답변작성</h5>
+		<form method="post" action="/question/answer">
+			<textarea name="answer_content"></textarea>
+			<input type="submit" class="btn1" value="답변등록">
+		</form>
+		<% } if(session.loginInfo.userid == session.question_detail.writer){ %>
+		<input class="btn1" type="button" value="수정">
+		<input class="btn1" type="button" onclick="javascript:window.location='/question/delete/<%=session.question_detail._id %>'" value="삭제">
+		<%  } %>
+		</form>
+	</div>
+	<div>
+		<% include ../bottom.ejs %>
+	</div>
+</body>
+
+</html>

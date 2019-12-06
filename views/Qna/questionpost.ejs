@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <link href="/public/css/questionCss.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <meta charset="utf-8">
+    <title>동양항공 고객센터 목록</title>
+    <style>
+        header {
+            position: relative;
+            z-index: 3;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <% include ../top.ejs %>
+    </div>
+    <div class="content">
+        <div class="wrapper">
+            <h2>문의글 작성</h2>
+            <form action="/question/post" method="POST">
+                <table class="post_form">
+                    <tr>
+                        <td class="td_title">유형</td>
+                        <td class="td_content">
+                            <select id="question_category" name="question_category" style="width: 20%;">
+                                <option value="1" selected>예매 문의</option>
+                                <option value="2">결제 문의</option>
+                                <option value="3">취소 문의</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_title"> 제목</td>
+                        <td class="td_content">
+                            <input type="text" name="question_title">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_title">내용</td>
+                        <td class="td_content">
+                            <textarea name="question_content" rows="20" class="question_content" placeholder="예매문의 form"></textarea>
+                        </td>
+                    </tr>
+                </table>
+                <input type="submit" value="문의하기" class="btn1">
+            </form>
+        </div>
+    </div>
+    <div>
+        <% include ../bottom.ejs %>
+    </div>
+</body>
+
+</html>
+<script>
+    $(function () {
+        $("#question_category").change(function () {
+            if ($(this).val() == 1) {
+                $(".question_content").text('예매문의 form')
+            } else if ($(this).val() == 2) {
+                $(".question_content").text('결제문의 form')
+            } else if ($(this).val() == 3) {
+                $(".question_content").text('취소문의 form')
+            }
+        });
+    });
+</script>
