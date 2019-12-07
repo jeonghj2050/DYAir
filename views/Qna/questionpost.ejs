@@ -42,7 +42,7 @@
                     <tr>
                         <td class="td_title">내용</td>
                         <td class="td_content">
-                            <textarea name="question_content" rows="20" class="question_content" placeholder="예매문의 form"></textarea>
+                            <textarea name="question_content" rows="20" placeholder="상품명 : &#13;&#10;문의할 점 : "></textarea>
                         </td>
                     </tr>
                 </table>
@@ -60,11 +60,11 @@
     $(function () {
         $("#question_category").change(function () {
             if ($(this).val() == 1) {
-                $(".question_content").text('예매문의 form')
+                $(".question_content").text('상품명 : \n문의할 점 : ')
             } else if ($(this).val() == 2) {
-                $(".question_content").text('결제문의 form')
+                $(".question_content").text('상품명 : \n문의할 점 :')
             } else if ($(this).val() == 3) {
-                $(".question_content").text('취소문의 form')
+                $(".question_content").text('상품명 : \n예매번호 : \n문의할 점 :')
             }
         });
     });

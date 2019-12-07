@@ -30,7 +30,7 @@
 		<table class="table1">
 			<thead>
 				<tr>
-					<th>번호</th>
+					<th class="th_no">번호</th>
 					<th>제목</th>
 					<th>작성자</th>
 					<th>답변상태</th>
@@ -40,8 +40,8 @@
 				<% for(var i=0; i< session.questionList.qnalist.length; i++){ 
 					 var list=session.questionList.qnalist[i]; %>
 				<tr>
-					<td><%= list.no %></td>
-					<td><a href="/question/detail/<%=list._id %>"> <%= list.title %></a></td>
+					<td  class="th_no"><%= list.no %></td>
+					<td><a class="title" href="/question/detail/<%=list._id %>"> <%= list.title %></a></td>
 					<td><%= list.writer %></td>
 					<td><% if(list.status == 0) {%>
 						답변대기중
