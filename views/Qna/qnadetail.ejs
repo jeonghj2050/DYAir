@@ -20,6 +20,7 @@
 	<div class="content">
 		<div class="wrapper">
 			<h2>문의글 답변</h2>
+
 			<table class="post_form">
 				<tr>
 					<td class="td_title">유형</td>
@@ -70,12 +71,14 @@
 				<textarea rows="10" name="answer_content"></textarea>
 				<input type="submit" class="btn1" value="답변등록">
 			</form>
-			<% } if(session.loginInfo.userid == session.question_detail.writer){ %>
-			<input class="btn1" type="button" value="수정">
+			<% } if(session.loginInfo.userid == session.question_detail.writer){
+				if(session.question_detail.status==0) {%>
+					<input class="btn1" type="button" 
+				onclick="javascript:window.location='/question/update/<%=session.question_detail._id %>'" value="수정">
+				<% } %>
 			<input class="btn1" type="button"
 				onclick="javascript:window.location='/question/delete/<%=session.question_detail._id %>'" value="삭제">
 			<%  } %>
-			</form>
 		</div>
 	</div>
 	<div>

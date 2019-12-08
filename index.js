@@ -42,7 +42,7 @@ app.listen(port, () => {
 });
 
 function connectDB() {
-    const dbUrl = "mongodb://localhost:27017/dyair";
+    const dbUrl = "mongodb+srv://dyair_user:dyair_password@dyairproject-e40op.mongodb.net/test?retryWrites=true&w=majority";
 
     console.log('db연결을 시도합니다.');
     mongoose.Promise = global.Promise;

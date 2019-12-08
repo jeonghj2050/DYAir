@@ -3,6 +3,7 @@
 
 <head>
 	<link href="/public/css/questionCss.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<meta charset="utf-8">
 	<title>동양항공 고객센터 목록</title>
 	<style>
@@ -23,39 +24,74 @@
 	</script>
 	<% } %>
 	<div class="content">
-		<h1>문의하기</h1>
+		<p class="h_title">문의하기</p>
+		<div class="tabs_box">
+			<ul class="tabs">
+				<li class="active" rel="tab1" name="tab1">전체</li>
+				<li rel="tab2" name="tab2">예매문의</li>
+				<li rel="tab3" name="tab3">결제문의</li>
+				<li rel="tab4" name="tab4">취소문의</li>
+			</ul>
+		</div>
+		<% console.log(session.loginInfo.userid) %>
 		<% if(session.loginInfo.userid != "manager"){ %>
 		<a class="btn1" href="/question/post">문의글 작성</a>
 		<% } %>
-		<table class="table1">
-			<thead>
-				<tr>
-					<th class="th_no">번호</th>
-					<th>제목</th>
-					<th>작성자</th>
-					<th>답변상태</th>
-				</tr>
-			</thead>
-			<tbody>
-				<% for(var i=0; i< session.questionList.qnalist.length; i++){ 
-					 var list=session.questionList.qnalist[i]; %>
-				<tr>
-					<td  class="th_no"><%= list.no %></td>
-					<td><a class="title" href="/question/detail/<%=list._id %>"> <%= list.title %></a></td>
-					<td><%= list.writer %></td>
-					<td><% if(list.status == 0) {%>
-						답변대기중
-						<% } else{%>
-						답변완료
-						<% } %></td>
-				</tr>
-				<% } %>
-			</tbody>
-		</table>
+		<% for(var i=0; i< session.questionList.list.length; i++){ 
+			var num=i+1;
+			var list_type=session.questionList.list[i]; %>
+		<div class="tab_container" style="clear: both;">
+			<div id="tab<%=num%>" class="tab_content">
+				<table class="table1">
+					<thead>
+						<tr>
+							<th class="th_no">번호</th>
+							<th>제목</th>
+							<th>작성자</th>
+							<th>등록일</th>
+							<th>답변상태</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for(var j=0; j< list_type.length; j++) {%>
+						<tr>
+							<td class="th_no"><%= j+1 %></td>
+							<td><a class="title" href="/question/detail/<%=list_type[j]._id %>">
+									<%= list_type[j].title %></a>
+							</td>
+							<td><%= list_type[j].writer %></td>
+							<td><%= moment(list_type[j].createdAt).format('YYYY-MM-DD HH:mm:ss') %></td>
+							<td><% if(list_type[j].status == 0) {%>
+								<span>답변대기중</span>
+								<% } else{%>
+								<span class="complete">답변완료</span>
+								<% } %></td>
+						</tr>
+						<% } %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<% } %>
 	</div>
 	<div>
 		<% include ../bottom.ejs %>
 	</div>
 </body>
+<script>
+	$(document).ready(function () {
+		$(".tab_content").hide();
+		$(".tab_content:first").show();
+		$("ul.tabs li").click(function () {
+			var tagName = $(this).attr('name')
+			$(".child-page-listing h2").text(tagName)
+			$("ul.tabs li").removeClass("active").css("color", "#333");
+			$(this).addClass("active").css("color", "#fff");
+			$(".tab_content").hide()
+			var activeTab = $(this).attr("rel");
+			$("#" + activeTab).fadeIn()
+		});
+	});
+</script>
 
 </html>

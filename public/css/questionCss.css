@@ -26,13 +26,48 @@ table {
     border-bottom: 1px solid #7FB6BA;
     border-top: 1px solid #7FB6BA;
 }
+.complete{
+    color: orange ;
+    font-weight: bold;
+}
 @media (max-width:2000px){
+    ul.tabs{
+        display: table;
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 0;
+        float: left;
+        list-style: none;
+        font-size: 12pt;
+      
+      }
+      ul.tabs li {
+        width: 15%;
+        height: 40px;
+        line-height: 40px;
+        display: table-cell;
+        float: left;
+        margin-bottom: 10px;
+        text-align:center;
+        border: 0.3px solid #7FB6BA;
+      }
+      ul.tabs li.active {
+        background: #7FB6BA;
+        font-weight: bold;
+        color: #fff;
+        
+      }
     .table1 {
         width: 100%;
         margin-bottom: 20px;
         font-size: 12pt;
     }
-    
+    .h_title{
+        font-size: 22pt;
+        background:#7FB6BA ;
+        font-weight: bold;
+        text-align: center;
+    }
     .table1 td {
         padding: 8px;
         line-height: 20px;
@@ -73,12 +108,43 @@ table {
     
 }
 @media (max-width:1500px){
+    ul.tabs{
+        display: table;
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 0;
+        float: left;
+        list-style: none;
+        font-size: 10pt;
+      
+      }
+      ul.tabs li {
+        width: 15%;
+        height: 40px;
+        line-height: 40px;
+        display: table-cell;
+        float: left;
+        margin-bottom: 10px;
+        text-align:center;
+        border: 0.3px solid #7FB6BA;
+      }
+      ul.tabs li.active {
+        background: #7FB6BA;
+        font-weight: bold;
+        color: #fff;
+        
+      }
     .table1 {
         width: 100%;
         margin-bottom: 20px;
         font-size: 10pt;
     }
-      
+    .h_title{
+        font-size: 20pt;
+        background:#7FB6BA ;
+        font-weight: bold;
+        text-align: center;
+    }
     .table1 td {
         padding: 8px;
         line-height: 20px;
@@ -119,12 +185,43 @@ table {
     
 }
 @media (max-width:800px){
+    ul.tabs{
+        display: table;
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 0;
+        float: left;
+        list-style: none;
+        font-size: 8pt;
+      
+      }
+      ul.tabs li {
+        width: 15%;
+        height: 40px;
+        line-height: 40px;
+        display: table-cell;
+        float: left;
+        margin-bottom: 10px;
+        text-align:center;
+        border: 0.3px solid #7FB6BA;
+      }
+      ul.tabs li.active {
+        background: #7FB6BA;
+        font-weight: bold;
+        color: #fff;
+        
+      }
     .table1 {
         width: 100%;
         margin-bottom: 20px;
         font-size: 8pt;
     }
-      
+    .h_title{
+        font-size: 16pt;
+        background:#7FB6BA ;
+        font-weight: bold;
+        text-align: center;
+    } 
     .table1 td {
         padding: 8px;
         line-height: 20px;
@@ -182,7 +279,7 @@ table {
     width: 100%;
     resize: none;
     text-align: left;
-    border: ;
+    border: 0;
 }
 @media (max-width:2000px){
     .wrapper{
@@ -191,6 +288,7 @@ table {
     }
     .post_form{
         width:100%;
+        margin-bottom: 20px;
     }
     .td_title{
         width: 20%;    
@@ -221,6 +319,7 @@ table {
     }
     .post_form{
         width:100%;
+        margin-bottom: 20px;
     }
     .td_title{
         width: 25%;    
@@ -250,6 +349,7 @@ table {
     }
     .post_form{
         width:100%;
+        margin-bottom: 20px;
     }
     .td_title{
         width: 30%;    

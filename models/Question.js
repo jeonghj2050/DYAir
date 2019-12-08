@@ -13,8 +13,13 @@ const Qnalist=new Schema({
         type:Number,
         default:0
     },
+    secret_status:{
+        type:Number,
+        default:0
+    },
     comments:String,
-    createdAt: {type:Date,default:Date.now}
+    createdAt: {type:Date,default:Date.now},
+    answerAt:Date
 });
 
 module.exports=mongoose.model("Qnalist",Qnalist);
