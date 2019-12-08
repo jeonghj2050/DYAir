@@ -5,11 +5,10 @@ var Question = require("../models/Question");
 var moment = require('moment');
 require('moment-timezone');
 moment.tz.setDefault("Asia/Seoul");
-
 // /question 라우팅 고객센터 메인 페이지를 보여준다.
 router.get('/', function(req, res, next) {
     var session=req.session
-    req.session.notUser = true;
+    session.notUser=true
     // let session=req.session;
     Question.find({}).sort('-createdAt').exec( function (err, result) {
         var list1=[] 
