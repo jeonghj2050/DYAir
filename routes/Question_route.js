@@ -27,6 +27,7 @@ router.get('/', function(req, res, next) {
                     content:result[i].content,
                     writer:result[i].writer,
                     status:result[i].status,
+                    secret_status:result[i].secret_status,
                     createdAt:result[i].createdAt
                 }
                 list2.push(data2)
@@ -38,6 +39,7 @@ router.get('/', function(req, res, next) {
                     content:result[i].content,
                     writer:result[i].writer,
                     status:result[i].status,
+                    secret_status:result[i].secret_status,
                     createdAt:result[i].createdAt
                 }
                 list3.push(data2)
@@ -49,6 +51,7 @@ router.get('/', function(req, res, next) {
                     content:result[i].content,
                     writer:result[i].writer,
                     status:result[i].status,
+                    secret_status:result[i].secret_status,
                     createdAt:result[i].createdAt
                 }
                 list4.push(data2)
@@ -60,6 +63,7 @@ router.get('/', function(req, res, next) {
                 content:result[i].content,
                 writer:result[i].writer,
                 status:result[i].status,
+                secret_status:result[i].secret_status,
                 createdAt:result[i].createdAt
             }
             list1.push(data)
@@ -139,6 +143,7 @@ router.get('/detail/:objectId', function (req, res) {
             status:question.status,
             createdAt:question.createdAt,
             answerAt:question.answerAt,
+            secret_status:question.secret_status,
             comments:question.comments
         }
         res.render('Qna/qnadetail',{session,session})

@@ -65,6 +65,7 @@ table {
     .h_title{
         font-size: 22pt;
         background:#7FB6BA ;
+        color: white;
         font-weight: bold;
         text-align: center;
     }
@@ -142,6 +143,7 @@ table {
     .h_title{
         font-size: 20pt;
         background:#7FB6BA ;
+        color: white;
         font-weight: bold;
         text-align: center;
     }
@@ -219,6 +221,7 @@ table {
     .h_title{
         font-size: 16pt;
         background:#7FB6BA ;
+        color: white;
         font-weight: bold;
         text-align: center;
     } 
