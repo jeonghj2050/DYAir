@@ -87,7 +87,7 @@ router.get('/post', function(req, res, next) {
     if(!session.loginInfo){
         res.redirect('/account')
     }
-    res.render('Qna/questionpost');
+    res.render('Qna/questionpost',{session:session});
    
 });
 

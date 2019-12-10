@@ -4,17 +4,35 @@ const Account = require('../models/Account');
 const hasher = bkfd2Password();
 const router = express.Router();
 var session = require('express-session');
+
 router.get('/', function (req, res) {
-    res.render('account/login');
+    let session = req.session
+
+    res.render('account/login',{
+        session: session
+    });
+});
+
+router.get('/login', function(req, res, next){
+    let session = req.session
+
+    res.render('account/login',{
+        session: session
+    });
 });
 
 router.get('/register', function (req, res) {
-    res.render('account/register');
+    let session = req.session
+
+    res.render('account/register',{
+        session: session
+    });
 });
+
 router.post('/register', function (req, res) {
     // CHECK USERNAME FORMAT
     // 유저네임으로 사용할 수 있는 문자는 영어와 숫자 뿐
-    let idRegex = /^[a-z0-9]+$/;
+    let idRegex = /^[a-z0-9]{1,15}$/;
 
     if (!idRegex.test(req.body.userid)) {
         return res.status(400).json({ // HTTP 요청에 대한 리스폰스 (json 형식으로)
@@ -36,6 +54,7 @@ router.post('/register', function (req, res) {
     // 기존에 존재하는 username 이 있는지 DB 에서 확인
     Account.findOne({ userid: req.body.userid }, (err, exists) => { //Model.findOne 메소드
         if (err) throw err;
+        
         if (exists) {
             return res.status(409).json({
                 error: "id EXISTS",
@@ -43,16 +62,16 @@ router.post('/register', function (req, res) {
             });
         }
 
-        // CREATE ACCOUNT
-        // 위의 코드 1~3 의 결격 사항이 없을 경우 db에 저장
-        // hasher 를 이용해 비밀번호 보안
+        // hasher 를 이용해 비밀번호 보안 db에 저장
         hasher({ password: req.body.password }, function (err, pass, salt, hash) {
             let account = new Account({
                 userid: req.body.userid,
                 password: hash,
                 salt: salt,
+                koName: req.body.koName,
+                enName: req.body.enName,
+                birthDay: req.body.birthDay,
                 email: req.body.email,
-                address: req.body.address,
                 phone: req.body.phone,
             });
             account.save(err => {
@@ -65,13 +84,6 @@ router.post('/register', function (req, res) {
 });
 
 router.post('/login', function (req, res, next) {
-    // 비밀번호 데이터 타입 검사 (문자열인지 아닌지)
-    if (typeof req.body.password !== "string") {
-        return res.status(401).json({
-            error: "PASSWORD IS NOT STRING",
-            code: 1
-        });
-    }
 
     // FIND THE USER BY USERNAME
     // Model.findOne 메소드로 username 이 같은 DB 검색 (첫번째 인자 : Query)
@@ -93,11 +105,13 @@ router.post('/login', function (req, res, next) {
         const validate = hasher({ password: req.body.password, salt: account.salt }, function (err, pass, salt, hash) {
             // 입력한 비밀번호를 이용해 만는 해쉬와 DB에 저장된 비밀번호가 같을 경우
             if (hash === account.password) {
+                //로그인 사용자의 정보 세션에 저장 
                 const session = req.session;
                 session.point_status=true;
                 session.loginInfo = {
                     _id: account._id,
                     userid: account.userid,
+                    koName: account.koName,
                 }
                 res.redirect('/');
 
@@ -115,13 +129,11 @@ router.post('/login', function (req, res, next) {
 
 });
 
-router.get('/logout', (req, res) => {
-    //req.session.destroy() -> 세션 파괴
-    req.session.destroy(err => {
-        if (err) throw err;
-    });
+router.get('/logout', (req, res, next) => {
+    //로그아웃시 세션 삭제 
+    req.session.destroy();
 
-    return res.redirect('/');
+    res.redirect('/');
 });
 
 module.exports = router;

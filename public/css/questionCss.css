@@ -286,6 +286,7 @@ table {
 }
 @media (max-width:2000px){
     .wrapper{
+        font-size: 12pt;
         width: 70%;
         margin: 0 auto;
     }
@@ -298,26 +299,31 @@ table {
         text-align: center;
         background: #7FB6BA;
         color:white;
+        font-size: 12pt;
         font-weight: bold;
     }
     .td_content{
+        font-size: 12pt;
         width: 100%;
     }
     .td_content input{
+        font-size:12pt;
         width: 100%;
     }
     textarea{
+        font-size: 12pt;
         width: 100%;
         resize: none;
         text-align: left;
     }
     select{
-        width: 100%;
+        font-size: 12pt;
     }
 }
 @media (max-width:1500px){
     .wrapper{
         width: 70%;
+        font-size: 10pt;
         margin: 0 auto;
     }
     .post_form{
@@ -329,25 +335,31 @@ table {
         text-align: center;
         background: #7FB6BA;
         font-weight: bold;
+        font-size: 10pt;
     }
     .td_content{
         width: 100%;
+        font-size: 10pt;
     }
     .td_content input{
         width: 100%;
+        font-size: 10pt;
     }
     textarea{
         width: 100%;
         resize: none;
         text-align: left;
+        font-size: 10pt;
     }
     select{
         width: 100%;
+        font-size: 10pt;
     }
 }
 @media (max-width:800px){
     .wrapper{
         width: 70%;
+        font-size: 8pt;
         margin: 0 auto;
     }
     .post_form{
@@ -359,19 +371,24 @@ table {
         text-align: center;
         background: #7FB6BA;
         font-weight: bold;
+        font-size: 8pt;
     }
     .td_content{
         width: 100%;
+        font-size: 8pt;
     }
     .td_content input{
         width: 100%;
+        font-size: 8pt;
     }
     textarea{
         width: 100%;
         resize: none;
         text-align: left;
+        font-size: 8pt;
     }
     select{
         width: 100%;
+        font-size: 8pt;
     }
 }
