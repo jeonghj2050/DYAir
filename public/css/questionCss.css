@@ -30,7 +30,8 @@ table {
     color: orange ;
     font-weight: bold;
 }
-@media (max-width:2000px){
+
+@media all and (min-width:1701px) and (max-width:2900px){
     ul.tabs{
         display: table;
         width: 100%;
@@ -108,7 +109,7 @@ table {
     }
     
 }
-@media (max-width:1500px){
+@media all and (min-width:851px) and (max-width:1700px){
     ul.tabs{
         display: table;
         width: 100%;
@@ -186,7 +187,7 @@ table {
     }
     
 }
-@media (max-width:800px){
+@media all and (min-width:300px) and (max-width:850px){
     ul.tabs{
         display: table;
         width: 100%;
@@ -284,7 +285,8 @@ table {
     text-align: left;
     border: 0;
 }
-@media (max-width:2000px){
+
+@media all and (min-width:1701px) and (max-width:2900px){
     .wrapper{
         font-size: 12pt;
         width: 70%;
@@ -319,7 +321,7 @@ table {
         font-size: 12pt;
     }
 }
-@media (max-width:1500px){
+@media all and (min-width:851px) and (max-width:1700px){
     .wrapper{
         width: 70%;
         font-size: 10pt;
@@ -355,7 +357,7 @@ table {
         font-size: 10pt;
     }
 }
-@media (max-width:800px){
+@media all and (min-width:300px) and (max-width:850px){
     .wrapper{
         width: 70%;
         font-size: 8pt;

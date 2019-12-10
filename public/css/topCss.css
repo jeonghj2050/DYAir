@@ -25,7 +25,7 @@ html{
 #topMenu{
 width: 100%;
 }
-@media (max-width:2000px){
+@media all and (min-width:1701px) and (max-width:2900px){
 	#top1 > span{
 		padding:0 20px;
 		font-size: 12pt;
@@ -131,7 +131,7 @@ width: 100%;
 			font-size: pt;
 			}
 }
-@media (max-width:1500px){
+@media all and (min-width:851px) and (max-width:1700px){
 	#top1 > span{
 		padding:0 20px;
 		font-size: 10pt;
@@ -237,7 +237,7 @@ width: 100%;
 			}
 
 }
-@media (max-width:800px){
+@media all and (min-width:300px) and (max-width:850px){
 	#top1 > span{
 	padding:0 20px;
 	font-size: 8pt;
