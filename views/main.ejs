@@ -3,12 +3,210 @@
 	<head>
 		<meta charset="utf-8">
 		<title>동양항공 메인페이지</title>
-		<link rel="stylesheet" type="text/css" media="screen" href="/public/css/CSSreset.min.css" />
-		<link rel="stylesheet" type="text/css" media="screen" href="/public/css/als_demo.css" />
-		<link rel="stylesheet" type="text/css" media="screen" href="/public/css/silde.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="public/css/als_demo.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="public/css/silde.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="public/css/main.css" />
+		<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.js"></script> 
+		<script type="text/javascript">
 
+
+			$(document).ready(function()
+			{
+				setDateOption();
+				/*
+				$("#btn_search_seat").click(function(){
+					console.log('조회');
+					//location.href = './search_seat';
+				});
+				*/
+
+			}); 
+
+			function setDateOption()
+			{
+				var wd = "";
+				
+				for(var i=1; i<=12; i++){
+					wd = wd + "<option value="+i+">"+i+"</option>";
+				}
+				$('#dpt_month_opt').empty();
+				$('#dpt_month_opt').append(wd);
+				$('#arv_month_opt').empty();
+				$('#arv_month_opt').append(wd);
+
+				wd = "";
+				for(var i=1; i<=31; i++){
+					wd = wd + "<option value="+i+">"+i+"</option>";
+				}
+				$('#dpt_day_opt').empty();
+				$('#dpt_day_opt').append(wd);
+				$('#arv_day_opt').empty();
+				$('#arv_day_opt').append(wd);
+			}
+
+			
+		</script>
+
+		<style></style>
 	</head>
+
 	<body>
+
+	<!-- 메인페이지 콘텐츠 전체 WRAPPER -->	
+	<div class="outer_wrapper">
+
+		<!-- 예매 DIV -->
+		<div id="top" class="flex-row">
+			<div> 
+			<form method="post" action="/seat" style="width:100%;height:100%;">
+			<div class="flex-column" style="width:100%;height:100%;">
+				<!--
+				<div class='top-L1 flex-row'>
+					<div>
+						<input type="radio" id="trip_pattern" name="trip_pattern" value="round" checked/>
+						<label for="r1"><span></span>왕복</label>
+					</div>
+					<div>
+						<input type="radio" id="trip_pattern" value="one_way" name="trip_pattern" />
+						<label for="r2"><span></span>편도</label>
+					</div>
+				</div>-->
+				<div class='top-L2 flex-row'>
+					<div class='flex-row'>
+						<div>출발지</div>
+						<div>
+							<select id='departure_country' name='departure_country'>
+								<option value='KR'>대한민국</option>
+								<option value='UK'>영국</option>
+								<option value='US'>미국</option>
+								<option value='JP'>일본</option>
+							</select>
+						</div>
+					</div>
+					<div class='flex-row'>
+						<div>출발일</div>
+						<div class='flex-row'>
+							<select id='dpt_month_opt' name='departure_date_month'>
+								<option value='' selected></option>
+							</select>월
+						</div>
+						<div class='flex-row'>
+							<select id='dpt_day_opt' name='departure_date_day'>
+								<option value='-' selected></option>
+							</select>일
+						</div>
+					</div>
+				</div>
+				<div class='top-L3 flex-row'>
+					<div class='flex-row'>
+						<div>도착지</div>
+						<div>
+							<select id='arrival_country' name='arrival_country'>
+								<option value='KR'>대한민국</option>
+								<option value='UK'>영국</option>
+								<option value='US'>미국</option>
+								<option value='JP'>일본</option>
+							</select>
+						</div>
+					</div>
+					<div class='flex-row'>
+						<div>도착일</div>
+						<div class='flex-row'>
+							<select id='arv_month_opt' name='arrival_date_month'>
+								<option value='-' selected></option>
+							</select>월
+						</div>
+						<div class='flex-row'>
+							<select id='arv_day_opt' name='arrival_date_day'>
+								<option value='-' selected></option>
+							</select>일
+						</div>
+					</div>
+				</div>
+				<div class='top-L4 flex-row'>
+					<div class='flex-row'>
+						<div>성인</div>
+						<div><input id='adult' type='number' value='0' style='width:25px;'/></div>
+					</div>
+					<div class='flex-row'>
+						<div>소아</div>
+						<div><input id='youth' type='number' value='0' style='width:25px;'/></div>
+					</div>
+					<div class='flex-row'>
+						<div>유아</div>
+						<div><input id='infant' type='number' value='0' style='width:25px;'/></div>
+					</div>
+				</div>
+				<div class='top-L5'>
+					<div id='btn_search_seat' class='button' href="/search" value='search_seat'>조회하기</div>
+				</div>
+			</div>
+			</form>
+			</div>
+
+			<div> 
+				<form method='get' action='/' style='width:100%;height:100%;'>
+				<table class='table' style='width:100%;'>
+					<thead>
+						<tr>
+						<!--<th class="th_no">번호</th>-->
+							<th>항공기코드</th>
+						<!--<th>왕복/편도</th>-->
+							<th>출발지</th>
+							<th>도착지</th>
+							<th>출발일</th>
+							<th>도착일</th>
+						<!--<th>인원</th>-->	
+							<th>예매상태</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for(var i=0; i< seat.length; i++){ 
+							 var list=seat[i]; %>
+						<tr>
+						<!--<td  class="th_no"><%= list.no %></td>-->	
+							<td><%= list.plane_code %></td>
+						<!--<td><%= list.trip_pattern %></td>-->
+							<td><%= list.departure_country %></td>
+							<td><%= list.arrival_country %></td>
+							<td><%= list.departure_month %>월 <%= list.departure_day %>일</td>
+							<td><%= list.arrival_month %>월 <%= list.arrival_day %>일</td>
+						<!--<td>인원<%= list.carry %>명</td>-->	
+							<td><% if(list.status == 0) {%> 
+								가능
+								<% } else if(list.status == 1){%>
+								불가
+								<% } else if(list.status == 2){%>
+								완료
+								<% } %></td>
+							<td><% if(list.status == 0) {%>
+								<div class='button' href="/reserve">예매하기</div>
+								<% }else if(list.status == 2){%>
+									<div class='button' href="/cancel">예매취소</div>
+								<% } %></td>
+						</tr>
+						<% } %>
+					</tbody>
+				</table>
+				</form>
+			</div>
+		</div>
 		
+		<!-- 하단 DIV -->
+		<div id="bottom">
+			<div></div>
+			<div class="bottom-1 flex-center">
+				<img src="./public/images/a6.PNG" style="height:100%;width:auto">
+			</div>
+			<div class="bottom-2">
+
+			</div>
+			<div class="bottom-3">
+
+			</div>
+		</div>
+
+	</div>
+
 	</body>
 </html>
