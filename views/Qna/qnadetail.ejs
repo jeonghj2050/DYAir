@@ -17,7 +17,7 @@
 	<div>
 		<% include ../top.ejs %>
 	</div>
-	<div class="content">
+	<div class="content" style="height: 100%; margin-bottom: 50px;">
 		<div class="wrapper">
 			<p class="h_title">문의글 답변</p>
 
@@ -61,7 +61,7 @@
 			<% if(session.question_detail.status == 1) { %>
 			<h4>답변</h4>
 
-			<textarea readonly name="question_content" rows="20"
+			<textarea readonly name="question_content" cols="10"
 				class="question_content"><%=session.question_detail.comments %></textarea>
 
 			<% } %>
@@ -71,14 +71,16 @@
 				<textarea rows="10" name="answer_content"></textarea>
 				<input type="submit" class="btn1" value="답변등록">
 			</form>
-			<% } if(session.loginInfo.userid == session.question_detail.writer){
-				if(session.question_detail.status==0) {%>
-					<input class="btn1" type="button" 
-				onclick="javascript:window.location='/question/update/<%=session.question_detail._id %>'" value="수정">
+				<% } if(session.loginInfo.userid == session.question_detail.writer){
+					if(session.question_detail.status==0) {%>
+				<input class="btn1" type="button"
+					onclick="javascript:window.location='/question/update/<%=session.question_detail._id %>'"
+					value="수정">
 				<% } %>
-			<input class="btn1" type="button"
-				onclick="javascript:window.location='/question/delete/<%=session.question_detail._id %>'" value="삭제">
-			<%  } %>
+				<input class="btn1" type="button"
+					onclick="javascript:window.location='/question/delete/<%=session.question_detail._id %>'"
+					value="삭제">
+				<%  } %>
 		</div>
 	</div>
 	<div>
