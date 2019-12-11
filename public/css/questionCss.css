@@ -1,3 +1,4 @@
+/* 공통 */
 .content{
     width: 90%;
     margin: 0 auto;
@@ -5,6 +6,7 @@
   
 .btn1:link { text-decoration: none; color: white;} 
 .btn1:visited{ text-decoration: none; color: white;}
+
 .title:link{
     text-decoration: none;
     color: black;
@@ -31,6 +33,7 @@ table {
     font-weight: bold;
 }
 
+/* qnalist.ejs */
 @media all and (min-width:1701px) and (max-width:2900px){
     ul.tabs{
         display: table;
@@ -278,7 +281,9 @@ table {
     background-color: #7FB6BA;
     font-weight: bold;
 }
-/* questionpost */
+
+
+/* questionpost..ejs */
 .question_content{
     width: 100%;
     resize: none;

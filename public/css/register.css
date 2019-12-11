@@ -1,0 +1,61 @@
+th{
+    background-color:rgb(210, 232, 234);
+    padding: 20px 0;
+}
+td{
+    padding:30px;
+    border:1px solid rgb(210,232,234);
+}
+table{
+    border:1px solid rgb(210, 232, 234);
+}
+input[type="button"]{
+    text-decoration: none;
+    color:black;
+    background-color: rgb(210, 232, 234);
+    border:none;
+}
+input[type="submit"]{
+    font-size: 15px;
+    border:none;
+    padding:10px 30px;
+    margin-top:5px;
+    margin-bottom:20px;
+    color:black;
+    background-color: rgb(210, 232, 234);
+}
+input[type="reset"]{
+    font-size: 15px;
+    border:none;
+    padding:10px 30px;
+    margin-top:5px;
+    margin-bottom:20px;
+    color:black;
+    background-color: rgb(210, 232, 234);
+}
+center{
+    margin:30px 0;
+}
+
+@media all and (min-width:300px) and (max-width:850px){
+    table{
+        width: 50%;
+        font-size: 50%;
+    }
+    input{
+        width: 50%;
+    }
+}
+
+@media all and (min-width:851px) and (max-width:1700px){
+    table{
+        width: 60%;
+        font-size: 60%;
+    }
+}
+
+@media all and (min-width:1701px) and (max-width:2900px){
+    table{
+        font-size: 100%;
+    }
+}

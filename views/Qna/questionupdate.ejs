@@ -21,33 +21,30 @@
     <div class="content">
         <div class="wrapper">
             <p class="h_title">문의글 수정</p>
-            <form action="/question/update" method="POST">
+            <form action="/question/update/<%=question._id %>" method="POST">
                 <table class="post_form">
                     <tr>
                         <td class="td_title">유형</td>
                         <td class="td_content">
                             <select id="question_category" name="question_category" style="width: 20%;">
-                                <option value="1" selected><%=session.update_detail.type %></option>
+                                <option value="1" selected><%=question.type %></option>
                             </select>
                         </td>
                     </tr>
                     <tr>
                         <td class="td_title"> 제목</td>
                         <td class="td_content">
-                            <input type="text" name="question_title" value="<%=session.update_detail.title %>" readonly> 
+                            <input type="text" name="question_title" value="<%=question.title %>" readonly> 
                         </td>
                     </tr>
                     <tr>
                         <td class="td_title">내용</td>
                         <td class="td_content">
-                            <textarea name="update_content" class="question_content" rows="20"><%=session.update_detail.content %></textarea>
+                            <textarea name="update_content" class="question_content" rows="20"><%=question.content %></textarea>
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            비밀글<input type="checkbox" name="secretCheck" value="1">
-                        </td>
-                        <td><input type="submit" value="수정하기" class="btn1"></td>
+                        <td colspan="2"><input type="submit" value="수정하기" class="btn1"></td>
                     </tr>
                 </table>
             </form>

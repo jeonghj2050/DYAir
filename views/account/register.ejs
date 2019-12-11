@@ -1,64 +1,26 @@
 <html>
 <head>
-    <style>
-        th{
-        background-color:rgb(210, 232, 234);
-        padding: 20px 0;
-        }
-        td{
-        padding:30px;
-        border:1px solid rgb(210,232,234);
-        }
-        table{
-        border:1px solid rgb(210, 232, 234);
-        }
-        input[type="button"]{
-        text-decoration: none;
-        color:black;
-        background-color: rgb(210, 232, 234);
-        border:none;
-        }
-        input[type="submit"]{
-        font-size: 15px;
-        border:none;
-        padding:10px 30px;
-        margin-top:5px;
-        margin-bottom:20px;
-        color:black;
-        background-color: rgb(210, 232, 234);
-        }
-        input[type="reset"]{
-        font-size: 15px;
-        border:none;
-        padding:10px 30px;
-        margin-top:5px;
-        margin-bottom:20px;
-        color:black;
-        background-color: rgb(210, 232, 234);
-        }
-        center{
-        margin:30px 0;
-        }
-        </style>
-        <script type="text/javascript">
-            function idCheck(id){
-                if(id == ""){
-                    alert("아이디를 확인해주세요.");
-                    document.regForm.idx.focus();
-                }else{
-                    url="idChk.jsp?idx=" + id;
-                    window.open(url,"post","width=300,height=150");
-                }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="/public/css/register.css" rel="stylesheet">
+    <script type="text/javascript">
+        function idCheck(id){
+            if(id == ""){
+                alert("아이디를 확인해주세요.");
+                document.regForm.idx.focus();
+            }else{
+                url="idChk.jsp?idx=" + id;
+                window.open(url,"post","width=300,height=150");
             }
-            
-            function passCheck(ps, psch){
-                if(ps != psch){
-                    alert("패스워드를 다시 확인해주세요.");
-                    document.regForm.passwd.focus();
-                }else{
-                    alert("패스워드가 일치합니다.")
-                }
+        }
+        
+        function passCheck(ps, psch){
+            if(ps != psch){
+                alert("패스워드를 다시 확인해주세요.");
+                document.regForm.passwd.focus();
+            }else{
+                alert("패스워드가 일치합니다.")
             }
+        }
     </script>
 </head>
 <body>
