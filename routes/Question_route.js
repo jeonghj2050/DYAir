@@ -163,6 +163,7 @@ router.post('/update/:objectId', function (req, res) {
     });
 })
 
+
 // /question/detail/:objectId DB에서 objectId와 일치하는 문의글 삭제
 router.get('/delete/:objectId', function (req, res) {
     session = req.session;
